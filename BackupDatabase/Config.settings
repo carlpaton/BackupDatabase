@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BackupDatabase" GeneratedClassName="Config">
+  <Profiles />
+  <Settings>
+    <Setting Name="BackupPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Data\Backup\MySQL\</Value>
+    </Setting>
+    <Setting Name="BackupPathTemp" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Data\Backup\MySQL\Temp\</Value>
+    </Setting>
+    <Setting Name="DbList" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;spca_tracker&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="DbPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">root</Value>
+    </Setting>
+    <Setting Name="DbUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">root</Value>
+    </Setting>
+    <Setting Name="MySqlServerPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files\MySQL\MySQL Server 5.7\bin</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
