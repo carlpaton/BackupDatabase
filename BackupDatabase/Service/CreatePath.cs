@@ -1,22 +1,16 @@
-﻿using System.IO;
+﻿using BackupDatabase.Interface;
+using System.IO;
 
 namespace BackupDatabase.Service
 {
-    public class CreatePath
+    public class CreatePath : ICreatePath
     {
-        private readonly string Path;
-
-        public CreatePath(string path)
+        public void Go(string path)
         {
-            Path = path;
-        }
-
-        public void Go()
-        {
-            if (!Directory.Exists(Path))
+            if (!Directory.Exists(path))
             {
-                Directory.CreateDirectory(Path);
-                System.Console.WriteLine("Create path: {0}", Path);
+                Directory.CreateDirectory(path);
+                System.Console.WriteLine("Create path: {0}", path);
             }
         }
     }

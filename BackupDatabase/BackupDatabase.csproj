@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,13 +48,27 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Config.settings</DependentUpon>
     </Compile>
+    <Compile Include="EntryPoint.cs" />
+    <Compile Include="Interface\IClearPath.cs" />
+    <Compile Include="Interface\ICreatePath.cs" />
     <Compile Include="Interface\IDatabaseDump.cs" />
-    <Compile Include="Interface\IDbConnectionFactory.cs" />
+    <Compile Include="Interface\IFtpCreateRemotePath.cs" />
+    <Compile Include="Interface\IFtpListDirectoryOnRemote.cs" />
+    <Compile Include="Interface\IFtpPurgeRemoteData.cs" />
+    <Compile Include="Interface\IFtpSendFileToRemote.cs" />
+    <Compile Include="Interface\IPurgeLocal.cs" />
+    <Compile Include="Interface\IZipAndMove.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ClearPath.cs" />
     <Compile Include="Service\CreatePath.cs" />
     <Compile Include="Service\DatabaseDump.cs" />
+    <Compile Include="Service\FtpCreateRemotePath.cs" />
+    <Compile Include="Service\FtpListDirectoryOnRemote.cs" />
+    <Compile Include="Service\FtpPurgeRemoteData.cs" />
+    <Compile Include="Service\FtpSendFileToRemote.cs" />
+    <Compile Include="Service\PurgeLocal.cs" />
+    <Compile Include="Service\ZipAndMove.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -61,6 +76,20 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Config.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FtpProject\FtpProject.csproj">
+      <Project>{95B51FE9-6F6A-476B-AE0A-692B1CFAF118}</Project>
+      <Name>FtpProject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LoggerProject\LoggerProject.csproj">
+      <Project>{22EFF799-9E6B-4F82-91CB-C8A80A7A52EB}</Project>
+      <Name>LoggerProject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZipProject\ZipProject.csproj">
+      <Project>{7664CCC3-5B18-4824-9A8F-BDDBE3346641}</Project>
+      <Name>ZipProject</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

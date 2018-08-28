@@ -51,7 +51,7 @@ namespace BackupDatabase {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
             "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n  <s" +
-            "tring>spca_tracker</string>\r\n</ArrayOfString>")]
+            "tring>my_test_db</string>\r\n  <string>pergocloud</string>\r\n</ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection DbList {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["DbList"]));
@@ -94,6 +94,78 @@ namespace BackupDatabase {
             }
             set {
                 this["MySqlServerPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        public int LocalRetention {
+            get {
+                return ((int)(this["LocalRetention"]));
+            }
+            set {
+                this["LocalRetention"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60")]
+        public int RemoteRetention {
+            get {
+                return ((int)(this["RemoteRetention"]));
+            }
+            set {
+                this["RemoteRetention"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("MySQL")]
+        public string RemoteBasePath {
+            get {
+                return ((string)(this["RemoteBasePath"]));
+            }
+            set {
+                this["RemoteBasePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ftp://192.168.0.185")]
+        public string RemoteFtpServer {
+            get {
+                return ((string)(this["RemoteFtpServer"]));
+            }
+            set {
+                this["RemoteFtpServer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("carl")]
+        public string RemoteFtpUsr {
+            get {
+                return ((string)(this["RemoteFtpUsr"]));
+            }
+            set {
+                this["RemoteFtpUsr"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("carl")]
+        public string RemoteFtpPwd {
+            get {
+                return ((string)(this["RemoteFtpPwd"]));
+            }
+            set {
+                this["RemoteFtpPwd"] = value;
             }
         }
     }

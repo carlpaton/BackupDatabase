@@ -1,0 +1,1 @@
+﻿CREATE SCHEMA `my_test_db` ;

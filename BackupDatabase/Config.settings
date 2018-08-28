@@ -11,7 +11,8 @@
     <Setting Name="DbList" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;string&gt;spca_tracker&lt;/string&gt;
+  &lt;string&gt;my_test_db&lt;/string&gt;
+  &lt;string&gt;pergocloud&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="DbPassword" Type="System.String" Scope="User">
@@ -22,6 +23,24 @@
     </Setting>
     <Setting Name="MySqlServerPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\Program Files\MySQL\MySQL Server 5.7\bin</Value>
+    </Setting>
+    <Setting Name="LocalRetention" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="RemoteRetention" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="RemoteBasePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MySQL</Value>
+    </Setting>
+    <Setting Name="RemoteFtpServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ftp://192.168.0.185</Value>
+    </Setting>
+    <Setting Name="RemoteFtpUsr" Type="System.String" Scope="User">
+      <Value Profile="(Default)">carl</Value>
+    </Setting>
+    <Setting Name="RemoteFtpPwd" Type="System.String" Scope="User">
+      <Value Profile="(Default)">carl</Value>
     </Setting>
   </Settings>
 </SettingsFile>

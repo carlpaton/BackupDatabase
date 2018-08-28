@@ -1,19 +1,13 @@
-﻿using System.IO;
+﻿using BackupDatabase.Interface;
+using System.IO;
 
 namespace BackupDatabase.Service
 {
-    public class ClearPath
+    public class ClearPath : IClearPath
     {
-        private readonly string Path;
-
-        public ClearPath(string path)
+        public void Go(string path)
         {
-            Path = path;
-        }
-
-        public void Go()
-        {
-            var files = new DirectoryInfo(Path).GetFiles();
+            var files = new DirectoryInfo(path).GetFiles();
             foreach (var file in files)
             {
                 File.Delete(file.FullName);

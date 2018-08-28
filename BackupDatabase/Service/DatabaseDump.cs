@@ -6,34 +6,26 @@ namespace BackupDatabase.Service
 {
     public class DatabaseDump : IDatabaseDump
     {
-        private readonly IDbConnectionFactory _dbConnectionFactory;
-
-        public DatabaseDump(IDbConnectionFactory dbConnectionFactory)
-        {
-            _dbConnectionFactory = dbConnectionFactory;
-        }
-
         public string ResultDumpFile { get; set; }
 
         public string DbUser { get; set; }
         public string DbPassword { get; set; }
-        public string Database { get; set; }
         public string MySqlServerPath { get; set; }
         public DateTime DumpFileStamp { get; set; }
         public string BackupPath { get; set; }
         public string Error { get; set; }
 
-        public bool DoDump()
+        public bool Go(string database)
         {
             ResultDumpFile = string.Format("{0}_{1}.sql",
                 DumpFileStamp.ToString("yyyyMMdd"),
-                Database);
+                database);
 
             string arguments = string.Format("/c CD/&CD {0}& mysqldump -u{1} -p{2} {3} > {4}Temp\\{5}",
                 MySqlServerPath,
-                _dbConnectionFactory.DbUser,
-                _dbConnectionFactory.DbPassword,
-                _dbConnectionFactory.Database,
+                DbUser,
+                DbPassword,
+                database,
                 BackupPath,
                 ResultDumpFile);
 

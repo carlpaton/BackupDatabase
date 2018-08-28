@@ -6,15 +6,20 @@ This is a collaborative project that is made up of the following modules.
 
 This extracts a database dump, supported database are MySQL. (We will add MSSQL, PSQL ect)
 
-* FileZip
+* FtpProject
 
-This compresses the database file, the name will be yyyyMMdd.zip
+Classes interact with a remote FTP Service (Delete, List, Make Directory, Send)
 
-* FTPManager
+This pushes the file to a remote FTP location to a folder YYYY/MM. Files olders than the retention period are purged.
 
-This pushes the file to a remote FTP location to a folder YYYY/MM
-Files olders than the retention period are purged.
+* LoggerProject
+
+Simple logger to event viewer.
 
 * Tests
 
-Unit and integration tests.
+Initial integration tests
+
+* FileZip
+
+This compresses the database file, the name will be yyyyMMdd.zip

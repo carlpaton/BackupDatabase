@@ -44,25 +44,50 @@
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.1.2.1\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="RiskAssessment.Common">
+      <HintPath>..\..\Behemoth\publish\bin\RiskAssessment.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Integration\DatabaseDumpTest.cs" />
+    <Compile Include="Integration\FtpCreateRemotePathTest.cs" />
+    <Compile Include="Integration\FtpListDirectoryOnRemoteTest.cs" />
+    <Compile Include="Integration\FtpPurgeRemoteDataTests.cs" />
+    <Compile Include="Integration\FtpSendFileToRemoteTest.cs" />
+    <Compile Include="Integration\ZipAndMoveTest.cs" />
+    <Compile Include="Integration\PurgeLocalTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Unit\DatabaseDumpTest.cs" />
-    <Compile Include="Unit\Fakes\DbConnectionFactoryFake.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Integration\" />
+    <Folder Include="Unit\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BackupDatabase\BackupDatabase.csproj">
-      <Project>{BBB813ED-AF49-4496-86AC-3016BA462EB0}</Project>
+      <Project>{bbb813ed-af49-4496-86ac-3016ba462eb0}</Project>
       <Name>BackupDatabase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FtpProject\FtpProject.csproj">
+      <Project>{95B51FE9-6F6A-476B-AE0A-692B1CFAF118}</Project>
+      <Name>FtpProject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LoggerProject\LoggerProject.csproj">
+      <Project>{22EFF799-9E6B-4F82-91CB-C8A80A7A52EB}</Project>
+      <Name>LoggerProject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZipProject\ZipProject.csproj">
+      <Project>{7664CCC3-5B18-4824-9A8F-BDDBE3346641}</Project>
+      <Name>ZipProject</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQL\v1.0.2_SEED.sql" />
+    <Content Include="SQL\v1.0.1_CREATE_TABLE.sql" />
+    <Content Include="SQL\v1.0.0_CREATE_DB.sql" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
