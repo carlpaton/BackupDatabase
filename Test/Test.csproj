@@ -51,6 +51,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\CreateDummyFiles.cs" />
+    <Compile Include="Helpers\PurgeAll.cs" />
+    <Compile Include="Helpers\PushLocalDummyFilesToRemoteFtp.cs" />
     <Compile Include="Integration\DatabaseDumpTest.cs" />
     <Compile Include="Integration\FtpCreateRemotePathTest.cs" />
     <Compile Include="Integration\FtpListDirectoryOnRemoteTest.cs" />

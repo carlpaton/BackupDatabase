@@ -4,8 +4,7 @@ using FtpProject.Interface;
 using FtpProject.Service;
 using LoggerProject;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-using System.IO;
+using Test.Helpers;
 
 namespace Test.Integration
 {
@@ -79,8 +78,13 @@ namespace Test.Integration
         public void PurgeRemoteData()
         {
             //precondition, create dummy local files
-            var obj = new PurgeLocalTest();
-            PushLocalDummyFilesToRemoteFtp(obj.BackupPath);
+            var backupPath = @"C:\Data\Backup\MySQL\";
+
+            new PurgeAll().Go(backupPath);
+            new CreateDummyFiles().CreateHundred(backupPath);
+
+            new PushLocalDummyFilesToRemoteFtp(_ftpMakeDirectory, _ftpSendFile)
+                .Go(backupPath, _remoteBasePath, _remoteFtpServer);
 
             //arrange
             var yearFolderList = _ftpListDirectoryOnRemote.Go(true, _remoteBasePath);
@@ -101,42 +105,6 @@ namespace Test.Integration
             //act
 
             //assert
-        }
-
-        private void PushLocalDummyFilesToRemoteFtp(string backupPath)
-        {
-            var files = new DirectoryInfo(backupPath).GetFiles("*.zip");
-            var alreadyDone = new List<string>();
-
-            foreach (var file in files)
-            {
-                var lastWriteTime = file.LastWriteTime;
-
-                //create folders
-                var yearFolder = _remoteBasePath + "/" + lastWriteTime.Year;
-                var yearMonthFolder = _remoteBasePath + "/" + lastWriteTime.Year + "/" + lastWriteTime.ToString("MM");
-
-                if (!alreadyDone.Contains(yearFolder))
-                {
-                    _ftpMakeDirectory.Go(yearFolder);
-                    alreadyDone.Add(yearFolder);
-                }
-
-                if (!alreadyDone.Contains(yearMonthFolder))
-                {
-                    _ftpMakeDirectory.Go(yearMonthFolder);
-                    alreadyDone.Add(yearMonthFolder);
-                }
-
-                var ftpServerUrlWithFileName = string.Format("{0}/{1}/{2}",
-                    _remoteFtpServer,
-                    yearMonthFolder,
-                    file.Name);
-
-                var completelocalFilePath = backupPath + file.Name;
-
-                _ftpSendFile.Go(ftpServerUrlWithFileName, completelocalFilePath);
-            }
         }
     }
 }

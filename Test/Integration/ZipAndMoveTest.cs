@@ -1,6 +1,9 @@
 ﻿using BackupDatabase.Interface;
 using BackupDatabase.Service;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.IO;
+using Test.Helpers;
 
 namespace Test.Integration
 {
@@ -16,7 +19,17 @@ namespace Test.Integration
         {
             _backupPath = @"C:\Data\Backup\MySQL\";
             _backupPathTemp = @"C:\Data\Backup\MySQL\Temp\";
-            _backupName = "20180818_spca_tracker.sql";
+
+            _backupName = new CreateDummyFiles().CreateSingle(
+                101,
+                DateTime.Now.AddYears(1), 
+                _backupPath,
+                false);
+
+            //shim, move file to temp
+            File.Move(
+                _backupPath + _backupName, 
+                _backupPathTemp + _backupName);
 
             _zipAndMove = new ZipAndMove() {
                 BackupPath = _backupPath,

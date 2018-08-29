@@ -33,7 +33,7 @@ namespace Test.Integration
         }
 
         [TestMethod]
-        public void CreateDump()
+        public void MakeDirectory()
         {
             //arrange
             var remotePath = string.Format("{0}/{1}/{2}/",
