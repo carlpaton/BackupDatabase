@@ -18,7 +18,9 @@ namespace Test.Integration
         public DatabaseDumpTest()
         {
             _backupPath = @"C:\Data\Backup\MySQL\";
+
             _backupPathTemp = @"C:\Data\Backup\MySQL\Temp\";
+
             _database = "my_test_db";
             _createPath = new CreatePath();
             _clearPath = new ClearPath();
